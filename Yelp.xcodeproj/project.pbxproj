@@ -27,6 +27,12 @@
 		4A5927A21BE09BC000CEB144 /* BusinessCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A5927A01BE09BC000CEB144 /* BusinessCell.m */; };
 		4A5927A31BE09BC000CEB144 /* BusinessCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A5927A11BE09BC000CEB144 /* BusinessCell.xib */; };
 		4A5927A71BE0A8B900CEB144 /* UIImageView+FadeIn.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A5927A61BE0A8B900CEB144 /* UIImageView+FadeIn.m */; };
+		4A5927AA1BE11B0300CEB144 /* SearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A5927A91BE11B0300CEB144 /* SearchBar.m */; };
+		4A7F08FA1BE1A5DA0052DB10 /* FiltersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A7F08F81BE1A5DA0052DB10 /* FiltersViewController.m */; };
+		4A7F08FB1BE1A5DA0052DB10 /* FiltersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A7F08F91BE1A5DA0052DB10 /* FiltersViewController.xib */; };
+		4A7F08FF1BE1B5AB0052DB10 /* SwitchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A7F08FD1BE1B5AB0052DB10 /* SwitchCell.m */; };
+		4A7F09001BE1B5AB0052DB10 /* SwitchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A7F08FE1BE1B5AB0052DB10 /* SwitchCell.xib */; };
+		4A7F09031BE1D2100052DB10 /* YelpFilters.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A7F09021BE1D2100052DB10 /* YelpFilters.m */; };
 		63E591F41F684901AF8C1C19 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DEC6D18C14F46F8AF2EA320 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -70,6 +76,16 @@
 		4A5927A11BE09BC000CEB144 /* BusinessCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BusinessCell.xib; sourceTree = "<group>"; };
 		4A5927A51BE0A8B900CEB144 /* UIImageView+FadeIn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+FadeIn.h"; sourceTree = "<group>"; };
 		4A5927A61BE0A8B900CEB144 /* UIImageView+FadeIn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+FadeIn.m"; sourceTree = "<group>"; };
+		4A5927A81BE11B0300CEB144 /* SearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchBar.h; sourceTree = "<group>"; };
+		4A5927A91BE11B0300CEB144 /* SearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchBar.m; sourceTree = "<group>"; };
+		4A7F08F71BE1A5DA0052DB10 /* FiltersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FiltersViewController.h; sourceTree = "<group>"; };
+		4A7F08F81BE1A5DA0052DB10 /* FiltersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FiltersViewController.m; sourceTree = "<group>"; };
+		4A7F08F91BE1A5DA0052DB10 /* FiltersViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FiltersViewController.xib; sourceTree = "<group>"; };
+		4A7F08FC1BE1B5AB0052DB10 /* SwitchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwitchCell.h; sourceTree = "<group>"; };
+		4A7F08FD1BE1B5AB0052DB10 /* SwitchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwitchCell.m; sourceTree = "<group>"; };
+		4A7F08FE1BE1B5AB0052DB10 /* SwitchCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SwitchCell.xib; sourceTree = "<group>"; };
+		4A7F09011BE1D2100052DB10 /* YelpFilters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YelpFilters.h; sourceTree = "<group>"; };
+		4A7F09021BE1D2100052DB10 /* YelpFilters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YelpFilters.m; sourceTree = "<group>"; };
 		9DEC6D18C14F46F8AF2EA320 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A28C751BD8043032F84076DB /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		FCA9D9EAA444BE83C105EDA0 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -105,6 +121,8 @@
 			children = (
 				11F304FD1BDC476D000ED8EF /* YelpBusiness.h */,
 				11F304FE1BDC476D000ED8EF /* YelpBusiness.m */,
+				4A7F09011BE1D2100052DB10 /* YelpFilters.h */,
+				4A7F09021BE1D2100052DB10 /* YelpFilters.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -124,6 +142,9 @@
 				420474F818DC2B2100E88E07 /* MainViewController.h */,
 				420474F918DC2B2100E88E07 /* MainViewController.m */,
 				420474FA18DC2B2100E88E07 /* MainViewController.xib */,
+				4A7F08F71BE1A5DA0052DB10 /* FiltersViewController.h */,
+				4A7F08F81BE1A5DA0052DB10 /* FiltersViewController.m */,
+				4A7F08F91BE1A5DA0052DB10 /* FiltersViewController.xib */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -212,6 +233,11 @@
 				4A59279F1BE09BC000CEB144 /* BusinessCell.h */,
 				4A5927A01BE09BC000CEB144 /* BusinessCell.m */,
 				4A5927A11BE09BC000CEB144 /* BusinessCell.xib */,
+				4A5927A81BE11B0300CEB144 /* SearchBar.h */,
+				4A5927A91BE11B0300CEB144 /* SearchBar.m */,
+				4A7F08FC1BE1B5AB0052DB10 /* SwitchCell.h */,
+				4A7F08FD1BE1B5AB0052DB10 /* SwitchCell.m */,
+				4A7F08FE1BE1B5AB0052DB10 /* SwitchCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -246,7 +272,6 @@
 				42FD6C4418DC286A000BF2B9 /* Frameworks */,
 				42FD6C4518DC286A000BF2B9 /* Resources */,
 				EF9D6C828A584F28879F0D9C /* Copy Pods Resources */,
-				042B5EBDD4AD944AE37BBE99 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -316,6 +341,8 @@
 				42FD6C5518DC286B000BF2B9 /* InfoPlist.strings in Resources */,
 				11F304F81BDC02C1000ED8EF /* LaunchScreen.storyboard in Resources */,
 				420474FC18DC2B2100E88E07 /* MainViewController.xib in Resources */,
+				4A7F08FB1BE1A5DA0052DB10 /* FiltersViewController.xib in Resources */,
+				4A7F09001BE1B5AB0052DB10 /* SwitchCell.xib in Resources */,
 				42FD6C5D18DC286B000BF2B9 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -331,21 +358,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		042B5EBDD4AD944AE37BBE99 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		78917FF6F6C644EA867B9151 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -384,12 +396,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				42FD6C5B18DC286B000BF2B9 /* AppDelegate.m in Sources */,
+				4A5927AA1BE11B0300CEB144 /* SearchBar.m in Sources */,
 				42FD6C5718DC286B000BF2B9 /* main.m in Sources */,
 				4A5927A71BE0A8B900CEB144 /* UIImageView+FadeIn.m in Sources */,
 				420474F618DC299500E88E07 /* YelpClient.m in Sources */,
+				4A7F09031BE1D2100052DB10 /* YelpFilters.m in Sources */,
 				420474FB18DC2B2100E88E07 /* MainViewController.m in Sources */,
+				4A7F08FA1BE1A5DA0052DB10 /* FiltersViewController.m in Sources */,
 				11F304FF1BDC476D000ED8EF /* YelpBusiness.m in Sources */,
 				4A5927A21BE09BC000CEB144 /* BusinessCell.m in Sources */,
+				4A7F08FF1BE1B5AB0052DB10 /* SwitchCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

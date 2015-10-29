@@ -8,14 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "BDBOAuth1RequestOperationManager.h"
+#import "YelpBusiness.h"
+#import "YelpFilters.h"
 
 @interface YelpClient : BDBOAuth1RequestOperationManager
-
-typedef NS_ENUM(NSInteger, YelpSortMode) {
-    YelpSortModeBestMatched = 0,
-    YelpSortModeDistance = 1,
-    YelpSortModeHighestRated = 2
-};
 
 + (instancetype)sharedInstance;
 
@@ -23,9 +19,7 @@ typedef NS_ENUM(NSInteger, YelpSortMode) {
                                 completion:(void (^)(NSArray *businesses, NSError *error))completion;
 
 - (AFHTTPRequestOperation *)searchWithTerm:(NSString *)term
-                                  sortMode:(YelpSortMode)sortMode
-                                categories:(NSArray *)categories
-                                     deals:(BOOL)hasDeal
+                                   filters:(YelpFilters *)filters
                                 completion:(void (^)(NSArray *businesses, NSError *error))completion;
 
 @end

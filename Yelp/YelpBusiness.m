@@ -75,15 +75,11 @@
 }
 
 + (void)searchWithTerm:(NSString *)term
-              sortMode:(YelpSortMode)sortMode
-            categories:(NSArray *)categories
-                 deals:(BOOL)hasDeal
+               filters:(YelpFilters *)filters
             completion:(void (^)(NSArray *businesses, NSError *error))completion {
 
     [[YelpClient sharedInstance] searchWithTerm:term
-                                       sortMode:sortMode
-                                     categories:categories
-                                          deals:hasDeal
+                                        filters:filters
                                      completion:completion];
 }
 
