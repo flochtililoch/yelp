@@ -8,9 +8,12 @@
 
 #import "FiltersViewController.h"
 #import "SwitchCell.h"
+#import "CheckCell.h"
 #import "YelpFilters.h"
+#import "Filter.h"
+#import "FilterOption.h"
 
-@interface FiltersViewController () <UITableViewDataSource, UITableViewDelegate, SwitchCellDelegate>
+@interface FiltersViewController () <UITableViewDataSource, UITableViewDelegate, SwitchCellDelegate, CheckCellDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -35,12 +38,14 @@
     // Navigation
     self.navigationItem.title = @"Filters";
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(onCancelButton)];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Apply" style:UIBarButtonItemStylePlain target:self action:@selector(onApplyButton)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Search" style:UIBarButtonItemStylePlain target:self action:@selector(onApplyButton)];
     
     
     // Filters
     [self.tableView registerNib:[UINib nibWithNibName:@"SwitchCell" bundle:nil]
          forCellReuseIdentifier:@"switchCell"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"CheckCell" bundle:nil]
+         forCellReuseIdentifier:@"checkCell"];
 }
 
 
@@ -59,35 +64,72 @@
 
 #pragma - UITableViewDataSource
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [[self.filters class] categories].count;
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return self.filters.count;
 }
 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    Filter *filter = [self.filters objectAtIndex:section];
+    return filter.options.count;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    Filter *filter = [self.filters objectAtIndex:section];
+    return filter.title;
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    SwitchCell *cell = [tableView dequeueReusableCellWithIdentifier:@"switchCell"];
+    NSArray *sectionsCellsIds = @[@"switchCell", @"checkCell", @"checkCell", @"switchCell"];
     
-    NSDictionary *category = [[self.filters class] categories][indexPath.row];
+    Filter *filter = [self.filters objectAtIndex:indexPath.section];
+    FilterOption *filterOption = filter.options[indexPath.row];
     
-    cell.titleLabel.text = category[@"name"];
-    cell.on = [self.filters.selectedCategories containsObject:category];
+    SwitchCell *cell = [tableView dequeueReusableCellWithIdentifier:sectionsCellsIds[indexPath.section]];
     cell.delegate = self;
-    
+    cell.titleLabel.text = filterOption.name;
+    cell.on = filterOption.selected;
+
     return cell;
 }
 
 
 #pragma - SwitchCellDelegate
 
-- (void)switchCell:(SwitchCell *)switchCell didUpdateValue:(BOOL)value {
-    NSIndexPath *indexPath = [self.tableView indexPathForCell:switchCell];
+- (void)switchCell:(SwitchCell *)cell didUpdateValue:(BOOL)value {
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
     
-    if (value) {
-        [self.filters.selectedCategories addObject:[[self.filters class] categories][indexPath.row]];
-    } else {
-        [self.filters.selectedCategories removeObject:[[self.filters class] categories][indexPath.row]];
+    Filter *filter = [self.filters objectAtIndex:indexPath.section];
+    [filter toggleOptionAtIndex:indexPath.row];
+}
+
+
+#pragma - CheckCellDelegate
+
+- (void)cellWasTapped:(CheckCell *)cell {
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+
+    Filter *filter = [self.filters objectAtIndex:indexPath.section];
+    
+    // Prepare reference to previously selected and newly selected rows
+    NSUInteger currentlySelectedRowIndex = [filter.options indexOfObject:[[filter selectedOptions] firstObject]];
+    NSArray *rowsToReload = @[[NSIndexPath indexPathForRow:currentlySelectedRowIndex inSection:indexPath.section], indexPath];
+    
+    // Set model
+    [filter resetSelectionWithOptionAtIndex:indexPath.row];
+    
+    // Refresh changed rows
+    [self.tableView reloadRowsAtIndexPaths:rowsToReload withRowAnimation:UITableViewRowAnimationNone];
+}
+
+
+#pragma - Private
+
+- (NSMutableArray *)filters {
+    if (!_filters) {
+        _filters = [NSMutableArray array];
     }
+    return _filters;
 }
 
 @end

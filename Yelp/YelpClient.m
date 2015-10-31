@@ -7,6 +7,8 @@
 //
 
 #import "YelpClient.h"
+#import "Filter.h"
+#import "FilterOption.h"
 
 // You can register for Yelp API keys here: http://www.yelp.com/developers/manage_api_keys
 NSString * const kYelpConsumerKey = @"vxKwwcR_NMQ7WaEiQBK_CA";
@@ -51,26 +53,23 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
 }
 
 - (AFHTTPRequestOperation *)searchWithTerm:(NSString *)term
-                                   filters:(YelpFilters *)filters
+                                   filters:(NSArray *)filters
                                 completion:(void (^)(NSArray *businesses, NSError *error))completion {
     
     // For additional parameters, see http://www.yelp.com/developers/documentation/v2/search_api
     NSMutableDictionary *parameters = [@{@"term": term,
                                          @"ll" : @"37.774866,-122.394556",
-                                         @"sort": @(filters.sortMode)}
+                                         @"sort": @(0)}
                                        mutableCopy];
     
-    if (filters.selectedCategories && filters.selectedCategories.count > 0) {
-        NSMutableArray *names = [NSMutableArray array];
-        for (NSDictionary *category in filters.selectedCategories) {
-            [names addObject:category[@"code"]];
+    // Dynamically generate API parameters
+    for (Filter *filter in filters) {
+        if ([filter selectedOptions].count) {
+            NSString *value = [[[filter selectedOptions] valueForKey:@"code"] componentsJoinedByString:@","];
+            if (value.length > 0) {
+                parameters[filter.identifier] = value;
+            }
         }
-        NSString *categoryFilter = [names componentsJoinedByString:@","];
-        parameters[@"category_filter"] = categoryFilter;
-    }
-    
-    if (filters.hasDeals) {
-        parameters[@"deals_filter"] = [NSNumber numberWithBool:filters.hasDeals];
     }
     
     NSLog(@"%@", parameters);

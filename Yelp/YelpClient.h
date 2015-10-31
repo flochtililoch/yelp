@@ -19,7 +19,7 @@
                                 completion:(void (^)(NSArray *businesses, NSError *error))completion;
 
 - (AFHTTPRequestOperation *)searchWithTerm:(NSString *)term
-                                   filters:(YelpFilters *)filters
+                                   filters:(NSArray *)filters
                                 completion:(void (^)(NSArray *businesses, NSError *error))completion;
 
 @end

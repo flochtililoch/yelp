@@ -33,6 +33,10 @@
 		4A7F08FF1BE1B5AB0052DB10 /* SwitchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A7F08FD1BE1B5AB0052DB10 /* SwitchCell.m */; };
 		4A7F09001BE1B5AB0052DB10 /* SwitchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A7F08FE1BE1B5AB0052DB10 /* SwitchCell.xib */; };
 		4A7F09031BE1D2100052DB10 /* YelpFilters.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A7F09021BE1D2100052DB10 /* YelpFilters.m */; };
+		4AB978A91BE4769C00D45A00 /* FilterOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AB978A81BE4769C00D45A00 /* FilterOption.m */; };
+		4AD9F5A41BE2E7CC000AD5D5 /* CheckCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AD9F5A21BE2E7CC000AD5D5 /* CheckCell.m */; };
+		4AD9F5A51BE2E7CC000AD5D5 /* CheckCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4AD9F5A31BE2E7CC000AD5D5 /* CheckCell.xib */; };
+		4AD9F5AC1BE3361A000AD5D5 /* Filter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AD9F5AB1BE3361A000AD5D5 /* Filter.m */; };
 		63E591F41F684901AF8C1C19 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DEC6D18C14F46F8AF2EA320 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -86,6 +90,13 @@
 		4A7F08FE1BE1B5AB0052DB10 /* SwitchCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SwitchCell.xib; sourceTree = "<group>"; };
 		4A7F09011BE1D2100052DB10 /* YelpFilters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YelpFilters.h; sourceTree = "<group>"; };
 		4A7F09021BE1D2100052DB10 /* YelpFilters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YelpFilters.m; sourceTree = "<group>"; };
+		4AB978A71BE4769C00D45A00 /* FilterOption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterOption.h; sourceTree = "<group>"; };
+		4AB978A81BE4769C00D45A00 /* FilterOption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterOption.m; sourceTree = "<group>"; };
+		4AD9F5A11BE2E7CC000AD5D5 /* CheckCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckCell.h; sourceTree = "<group>"; };
+		4AD9F5A21BE2E7CC000AD5D5 /* CheckCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckCell.m; sourceTree = "<group>"; };
+		4AD9F5A31BE2E7CC000AD5D5 /* CheckCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CheckCell.xib; sourceTree = "<group>"; };
+		4AD9F5AA1BE3361A000AD5D5 /* Filter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Filter.h; sourceTree = "<group>"; };
+		4AD9F5AB1BE3361A000AD5D5 /* Filter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Filter.m; sourceTree = "<group>"; };
 		9DEC6D18C14F46F8AF2EA320 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A28C751BD8043032F84076DB /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		FCA9D9EAA444BE83C105EDA0 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -123,6 +134,10 @@
 				11F304FE1BDC476D000ED8EF /* YelpBusiness.m */,
 				4A7F09011BE1D2100052DB10 /* YelpFilters.h */,
 				4A7F09021BE1D2100052DB10 /* YelpFilters.m */,
+				4AB978A71BE4769C00D45A00 /* FilterOption.h */,
+				4AB978A81BE4769C00D45A00 /* FilterOption.m */,
+				4AD9F5AA1BE3361A000AD5D5 /* Filter.h */,
+				4AD9F5AB1BE3361A000AD5D5 /* Filter.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -238,6 +253,9 @@
 				4A7F08FC1BE1B5AB0052DB10 /* SwitchCell.h */,
 				4A7F08FD1BE1B5AB0052DB10 /* SwitchCell.m */,
 				4A7F08FE1BE1B5AB0052DB10 /* SwitchCell.xib */,
+				4AD9F5A11BE2E7CC000AD5D5 /* CheckCell.h */,
+				4AD9F5A21BE2E7CC000AD5D5 /* CheckCell.m */,
+				4AD9F5A31BE2E7CC000AD5D5 /* CheckCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -341,6 +359,7 @@
 				42FD6C5518DC286B000BF2B9 /* InfoPlist.strings in Resources */,
 				11F304F81BDC02C1000ED8EF /* LaunchScreen.storyboard in Resources */,
 				420474FC18DC2B2100E88E07 /* MainViewController.xib in Resources */,
+				4AD9F5A51BE2E7CC000AD5D5 /* CheckCell.xib in Resources */,
 				4A7F08FB1BE1A5DA0052DB10 /* FiltersViewController.xib in Resources */,
 				4A7F09001BE1B5AB0052DB10 /* SwitchCell.xib in Resources */,
 				42FD6C5D18DC286B000BF2B9 /* Images.xcassets in Resources */,
@@ -397,14 +416,17 @@
 			files = (
 				42FD6C5B18DC286B000BF2B9 /* AppDelegate.m in Sources */,
 				4A5927AA1BE11B0300CEB144 /* SearchBar.m in Sources */,
+				4AD9F5AC1BE3361A000AD5D5 /* Filter.m in Sources */,
 				42FD6C5718DC286B000BF2B9 /* main.m in Sources */,
 				4A5927A71BE0A8B900CEB144 /* UIImageView+FadeIn.m in Sources */,
 				420474F618DC299500E88E07 /* YelpClient.m in Sources */,
 				4A7F09031BE1D2100052DB10 /* YelpFilters.m in Sources */,
 				420474FB18DC2B2100E88E07 /* MainViewController.m in Sources */,
 				4A7F08FA1BE1A5DA0052DB10 /* FiltersViewController.m in Sources */,
+				4AD9F5A41BE2E7CC000AD5D5 /* CheckCell.m in Sources */,
 				11F304FF1BDC476D000ED8EF /* YelpBusiness.m in Sources */,
 				4A5927A21BE09BC000CEB144 /* BusinessCell.m in Sources */,
+				4AB978A91BE4769C00D45A00 /* FilterOption.m in Sources */,
 				4A7F08FF1BE1B5AB0052DB10 /* SwitchCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

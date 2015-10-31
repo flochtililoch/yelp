@@ -75,7 +75,7 @@
 }
 
 + (void)searchWithTerm:(NSString *)term
-               filters:(YelpFilters *)filters
+               filters:(NSArray *)filters
             completion:(void (^)(NSArray *businesses, NSError *error))completion {
 
     [[YelpClient sharedInstance] searchWithTerm:term

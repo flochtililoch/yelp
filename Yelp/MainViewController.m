@@ -13,13 +13,14 @@
 #import "BusinessCell.h"
 #import "SearchBar.h"
 #import "YelpFilters.h"
+#import "Filter.h"
 
 @interface MainViewController () <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, FiltersViewControllerDelegate>
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) UISearchBar *searchBar;
 @property (nonatomic, strong) NSArray *businesses;
-@property (nonatomic, strong) YelpFilters *filters;
+@property (nonatomic, strong) NSMutableArray *filters;
 
 @end
 
@@ -47,7 +48,7 @@
 
 - (void)initUI {
     
-    [self initFilters];
+    self.filters = [YelpFilters initialize];
 
     // Search bar
     self.searchBar = [[SearchBar alloc] init];
@@ -60,7 +61,6 @@
                                                                              style:UIBarButtonItemStylePlain
                                                                             target:self
                                                                             action:@selector(onFilterButton)];
-    
 
     // Results
     [self.tableView registerNib:[UINib nibWithNibName:@"BusinessCell" bundle:nil]
@@ -68,6 +68,21 @@
     
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 100.0;
+}
+
+
+#pragma - User actions
+
+- (void)onFilterButton {
+    FiltersViewController *vc = [[FiltersViewController alloc] init];
+    vc.delegate = self;
+    
+    for (Filter *filter in self.filters) {
+        [vc.filters addObject:[filter copy]];
+    }
+    
+    UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:vc];
+    [self presentViewController:nvc animated:YES completion:nil];
 }
 
 
@@ -87,23 +102,20 @@
 #pragma - UISearchBarDelegate
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    [searchBar resignFirstResponder];
     [self search];
 }
 
 
 #pragma - FiltersViewControllerDelegate
 
-- (void)filtersViewController:(FiltersViewController *)filterViewController didChangeFilters:(YelpFilters *)filters {
+- (void)filtersViewController:(FiltersViewController *)filterViewController didChangeFilters:(NSMutableArray *)filters {
     self.filters = filters;
     [self search];
 }
 
 
 #pragma - Private
-
-- (void)initFilters {
-    self.filters = [[YelpFilters alloc] init];
-}
 
 - (void)search {
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
@@ -120,12 +132,11 @@
     });
 }
 
-- (void)onFilterButton {
-    FiltersViewController *vc = [[FiltersViewController alloc] init];
-    vc.delegate = self;
-    vc.filters = [self.filters copy];
-    UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:vc];
-    [self presentViewController:nvc animated:YES completion:nil];
+- (NSMutableArray *)filters {
+    if (!_filters) {
+        _filters = [NSMutableArray array];
+    }
+    return _filters;
 }
 
 @end
