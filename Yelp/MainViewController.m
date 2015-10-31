@@ -56,11 +56,21 @@
     self.searchBar.text = @"Restaurant";
     
     // Navigation
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.69 green:0.02 blue:0.02 alpha:1.0];
+    self.navigationController.navigationBar.translucent = NO;
     self.navigationItem.titleView = self.searchBar;
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Filter"
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"filter"]
+                                                               landscapeImagePhone:nil
                                                                              style:UIBarButtonItemStylePlain
                                                                             target:self
                                                                             action:@selector(onFilterButton)];
+    self.navigationItem.leftBarButtonItem.tintColor = [UIColor whiteColor];
+
+    
+    
+    
+    
+    
 
     // Results
     [self.tableView registerNib:[UINib nibWithNibName:@"BusinessCell" bundle:nil]
