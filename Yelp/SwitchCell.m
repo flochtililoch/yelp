@@ -10,6 +10,9 @@
 
 @interface SwitchCell ()
 
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (nonatomic, assign) BOOL on;
+
 // Outlets
 @property (weak, nonatomic) IBOutlet UISwitch *toggleSwitch;
 
@@ -20,12 +23,8 @@
 
 @implementation SwitchCell
 
-- (void)awakeFromNib {
-    self.selectionStyle = UITableViewCellSelectionStyleNone;
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
+- (IBAction)switchValueChanged:(id)sender {
+    [self.delegate switchCell:self didUpdateValue:self.toggleSwitch.on];
 }
 
 - (void)setOn:(BOOL)on {
@@ -37,7 +36,4 @@
     [self.toggleSwitch setOn:on animated:animated];
 }
 
-- (IBAction)switchValueChanged:(id)sender {
-    [self.delegate switchCell:self didUpdateValue:self.toggleSwitch.on];
-}
 @end

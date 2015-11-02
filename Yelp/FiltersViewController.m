@@ -37,9 +37,12 @@
     
     // Navigation
     self.navigationItem.title = @"Filters";
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(onCancelButton)];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Search" style:UIBarButtonItemStylePlain target:self action:@selector(onApplyButton)];
-    
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop
+                                                                                          target:self
+                                                                                          action:@selector((onCancelButton))];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch
+                                                                                           target:self
+                                                                                           action:@selector(onApplyButton)];
     
     // Filters
     [self.tableView registerNib:[UINib nibWithNibName:@"SwitchCell" bundle:nil]
@@ -87,8 +90,7 @@
     
     SwitchCell *cell = [tableView dequeueReusableCellWithIdentifier:sectionsCellsIds[indexPath.section]];
     cell.delegate = self;
-    cell.titleLabel.text = filterOption.name;
-    cell.on = filterOption.selected;
+    cell.filterOption = filterOption;
 
     return cell;
 }

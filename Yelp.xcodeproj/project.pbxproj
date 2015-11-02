@@ -37,6 +37,8 @@
 		4AD9F5A41BE2E7CC000AD5D5 /* CheckCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AD9F5A21BE2E7CC000AD5D5 /* CheckCell.m */; };
 		4AD9F5A51BE2E7CC000AD5D5 /* CheckCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4AD9F5A31BE2E7CC000AD5D5 /* CheckCell.xib */; };
 		4AD9F5AC1BE3361A000AD5D5 /* Filter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AD9F5AB1BE3361A000AD5D5 /* Filter.m */; };
+		4AE275331BE7C97E00D162ED /* FilterOptionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AE275321BE7C97E00D162ED /* FilterOptionCell.m */; };
+		4AE275361BE7CFC500D162ED /* NavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AE275351BE7CFC500D162ED /* NavigationViewController.m */; };
 		63E591F41F684901AF8C1C19 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DEC6D18C14F46F8AF2EA320 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -97,6 +99,10 @@
 		4AD9F5A31BE2E7CC000AD5D5 /* CheckCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CheckCell.xib; sourceTree = "<group>"; };
 		4AD9F5AA1BE3361A000AD5D5 /* Filter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Filter.h; sourceTree = "<group>"; };
 		4AD9F5AB1BE3361A000AD5D5 /* Filter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Filter.m; sourceTree = "<group>"; };
+		4AE275311BE7C97E00D162ED /* FilterOptionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterOptionCell.h; sourceTree = "<group>"; };
+		4AE275321BE7C97E00D162ED /* FilterOptionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterOptionCell.m; sourceTree = "<group>"; };
+		4AE275341BE7CFC500D162ED /* NavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationViewController.h; sourceTree = "<group>"; };
+		4AE275351BE7CFC500D162ED /* NavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationViewController.m; sourceTree = "<group>"; };
 		9DEC6D18C14F46F8AF2EA320 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A28C751BD8043032F84076DB /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		FCA9D9EAA444BE83C105EDA0 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -160,6 +166,8 @@
 				4A7F08F71BE1A5DA0052DB10 /* FiltersViewController.h */,
 				4A7F08F81BE1A5DA0052DB10 /* FiltersViewController.m */,
 				4A7F08F91BE1A5DA0052DB10 /* FiltersViewController.xib */,
+				4AE275341BE7CFC500D162ED /* NavigationViewController.h */,
+				4AE275351BE7CFC500D162ED /* NavigationViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -256,6 +264,8 @@
 				4AD9F5A11BE2E7CC000AD5D5 /* CheckCell.h */,
 				4AD9F5A21BE2E7CC000AD5D5 /* CheckCell.m */,
 				4AD9F5A31BE2E7CC000AD5D5 /* CheckCell.xib */,
+				4AE275311BE7C97E00D162ED /* FilterOptionCell.h */,
+				4AE275321BE7C97E00D162ED /* FilterOptionCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -418,6 +428,7 @@
 				4A5927AA1BE11B0300CEB144 /* SearchBar.m in Sources */,
 				4AD9F5AC1BE3361A000AD5D5 /* Filter.m in Sources */,
 				42FD6C5718DC286B000BF2B9 /* main.m in Sources */,
+				4AE275361BE7CFC500D162ED /* NavigationViewController.m in Sources */,
 				4A5927A71BE0A8B900CEB144 /* UIImageView+FadeIn.m in Sources */,
 				420474F618DC299500E88E07 /* YelpClient.m in Sources */,
 				4A7F09031BE1D2100052DB10 /* YelpFilters.m in Sources */,
@@ -425,6 +436,7 @@
 				4A7F08FA1BE1A5DA0052DB10 /* FiltersViewController.m in Sources */,
 				4AD9F5A41BE2E7CC000AD5D5 /* CheckCell.m in Sources */,
 				11F304FF1BDC476D000ED8EF /* YelpBusiness.m in Sources */,
+				4AE275331BE7C97E00D162ED /* FilterOptionCell.m in Sources */,
 				4A5927A21BE09BC000CEB144 /* BusinessCell.m in Sources */,
 				4AB978A91BE4769C00D45A00 /* FilterOption.m in Sources */,
 				4A7F08FF1BE1B5AB0052DB10 /* SwitchCell.m in Sources */,

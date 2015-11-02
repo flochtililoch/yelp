@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FilterOptionCell.h"
 
 @class CheckCell;
 
@@ -16,10 +17,8 @@
 
 @end
 
-@interface CheckCell : UITableViewCell
+@interface CheckCell : FilterOptionCell
 
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-@property (nonatomic, assign) BOOL on;
 @property (nonatomic, weak) id<CheckCellDelegate> delegate;
 
 @end

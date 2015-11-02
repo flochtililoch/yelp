@@ -8,11 +8,14 @@
 
 #import "CheckCell.h"
 
-@implementation CheckCell
+@interface CheckCell ()
 
-- (void)awakeFromNib {
-    self.selectionStyle = UITableViewCellSelectionStyleNone;
-}
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (nonatomic, assign) BOOL on;
+
+@end
+
+@implementation CheckCell
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     if (selected) {

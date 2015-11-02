@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FilterOptionCell.h"
 
 @class SwitchCell;
 
@@ -16,10 +17,8 @@
 
 @end
 
-@interface SwitchCell : UITableViewCell
+@interface SwitchCell : FilterOptionCell
 
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-@property (nonatomic, assign) BOOL on;
 @property (nonatomic, weak) id<SwitchCellDelegate> delegate;
 
 @end

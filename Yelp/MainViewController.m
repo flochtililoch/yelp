@@ -7,6 +7,7 @@
 //
 
 #import "MainViewController.h"
+#import "NavigationViewController.h"
 #import "FiltersViewController.h"
 #import "MBProgressHUD.h"
 #import "YelpBusiness.h"
@@ -18,7 +19,7 @@
 @interface MainViewController () <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, FiltersViewControllerDelegate>
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
-@property (nonatomic, strong) UISearchBar *searchBar;
+@property (nonatomic, strong) SearchBar *searchBar;
 @property (nonatomic, strong) NSArray *businesses;
 @property (nonatomic, strong) NSMutableArray *filters;
 
@@ -46,31 +47,28 @@
 
 #pragma - UI
 
+- (UISearchBar *)searchBar {
+    if (!_searchBar) {
+        _searchBar = [[SearchBar alloc] init];
+    }
+    return _searchBar;
+}
+
 - (void)initUI {
     
     self.filters = [YelpFilters initialize];
 
     // Search bar
-    self.searchBar = [[SearchBar alloc] init];
     self.searchBar.delegate = self;
     self.searchBar.text = @"Restaurant";
     
     // Navigation
-    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.69 green:0.02 blue:0.02 alpha:1.0];
-    self.navigationController.navigationBar.translucent = NO;
     self.navigationItem.titleView = self.searchBar;
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"filter"]
                                                                landscapeImagePhone:nil
                                                                              style:UIBarButtonItemStylePlain
                                                                             target:self
                                                                             action:@selector(onFilterButton)];
-    self.navigationItem.leftBarButtonItem.tintColor = [UIColor whiteColor];
-
-    
-    
-    
-    
-    
 
     // Results
     [self.tableView registerNib:[UINib nibWithNibName:@"BusinessCell" bundle:nil]
@@ -91,7 +89,7 @@
         [vc.filters addObject:[filter copy]];
     }
     
-    UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:vc];
+    NavigationViewController *nvc = [[NavigationViewController alloc] initWithRootViewController:vc];
     [self presentViewController:nvc animated:YES completion:nil];
 }
 

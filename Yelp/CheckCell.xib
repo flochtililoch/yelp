@@ -15,18 +15,17 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g5g-Zd-1O8">
-                        <rect key="frame" x="12" y="11.5" width="278" height="20.5"/>
+                        <rect key="frame" x="15" y="12" width="39.5" height="19.5"/>
                         <animations/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <animations/>
                 <constraints>
-                    <constraint firstItem="g5g-Zd-1O8" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="2T3-Hh-XyO"/>
-                    <constraint firstItem="g5g-Zd-1O8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="v8R-M7-U0J"/>
-                    <constraint firstAttribute="trailing" secondItem="g5g-Zd-1O8" secondAttribute="trailing" constant="30" id="y7v-XS-Hk4"/>
+                    <constraint firstItem="g5g-Zd-1O8" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="To3-o5-JiV"/>
+                    <constraint firstItem="g5g-Zd-1O8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="Y7l-JK-MPM"/>
                 </constraints>
             </tableViewCellContentView>
             <animations/>
