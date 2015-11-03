@@ -18,7 +18,7 @@
                                              @{@"name": @"Offering a Deal", @"code":@1}
                                              ]},
                                    @{@"id": @"radius_filter", @"title": @"Distance", @"options":@[
-                                             @{@"name": @"Auto", @"code":@"", @"selected":@YES},
+                                             @{@"name": @"Best Match", @"code":@"", @"selected":@YES},
                                              @{@"name": @"2 Blocks", @"code":@158},
                                              @{@"name": @"6 Blocks", @"code":@474},
                                              @{@"name": @"1 Mile", @"code":@1609},

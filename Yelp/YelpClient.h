@@ -20,6 +20,7 @@
 
 - (AFHTTPRequestOperation *)searchWithTerm:(NSString *)term
                                    filters:(NSArray *)filters
+                                    offset:(NSUInteger *)offset
                                 completion:(void (^)(NSArray *businesses, NSError *error))completion;
 
 @end

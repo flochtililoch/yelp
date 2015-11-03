@@ -25,12 +25,11 @@
 - (void)awakeFromNib {
     self.thumbImageView.layer.cornerRadius = 5;
     self.thumbImageView.clipsToBounds = YES;
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
 }
 
 - (void)setBusiness:(YelpBusiness *)business {

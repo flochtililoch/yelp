@@ -16,7 +16,7 @@
 #import "YelpFilters.h"
 #import "Filter.h"
 
-@interface MainViewController () <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, FiltersViewControllerDelegate>
+@interface MainViewController () <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, UIScrollViewDelegate, FiltersViewControllerDelegate>
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) SearchBar *searchBar;
@@ -37,7 +37,7 @@
     self.tableView.dataSource = self;
 
     [self initUI];
-    [self search];
+    [self searchFromOffset:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -107,11 +107,25 @@
 }
 
 
+#pragma - UIScrollViewDelegate
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    [self.searchBar resignFirstResponder];
+}
+
+
+#pragma - UITableViewDelegate
+- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self.searchBar resignFirstResponder];
+    return nil;
+}
+
+
 #pragma - UISearchBarDelegate
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
     [searchBar resignFirstResponder];
-    [self search];
+    [self searchFromOffset:nil];
 }
 
 
@@ -119,21 +133,23 @@
 
 - (void)filtersViewController:(FiltersViewController *)filterViewController didChangeFilters:(NSMutableArray *)filters {
     self.filters = filters;
-    [self search];
+    [self searchFromOffset:nil];
 }
 
 
 #pragma - Private
 
-- (void)search {
+- (void)searchFromOffset:(NSUInteger *)offset {
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
         [YelpBusiness searchWithTerm:self.searchBar.text
                              filters:self.filters
+                              offset:offset
                           completion:^(NSArray *businesses, NSError *error) {
                               dispatch_async(dispatch_get_main_queue(), ^{
                                   self.businesses = businesses;
                                   [self.tableView reloadData];
+                                  [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:NO];
                                   [MBProgressHUD hideHUDForView:self.view animated:YES];
                               });
                           }];

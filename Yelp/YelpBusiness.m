@@ -76,10 +76,12 @@
 
 + (void)searchWithTerm:(NSString *)term
                filters:(NSArray *)filters
+                offset:(NSUInteger *)offset
             completion:(void (^)(NSArray *businesses, NSError *error))completion {
 
     [[YelpClient sharedInstance] searchWithTerm:term
                                         filters:filters
+                                         offset:offset
                                      completion:completion];
 }
 

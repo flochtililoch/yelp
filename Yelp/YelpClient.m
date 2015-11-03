@@ -49,11 +49,13 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
     
     return [self searchWithTerm:term
                         filters:nil
+                         offset:0
                      completion:completion];
 }
 
 - (AFHTTPRequestOperation *)searchWithTerm:(NSString *)term
                                    filters:(NSArray *)filters
+                                    offset:(NSUInteger *)offset
                                 completion:(void (^)(NSArray *businesses, NSError *error))completion {
     
     // For additional parameters, see http://www.yelp.com/developers/documentation/v2/search_api
@@ -62,7 +64,11 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
                                          @"sort": @(0)}
                                        mutableCopy];
     
-    // Dynamically generate API parameters
+    if (offset != nil) {
+        parameters[@"offset"] = [NSString stringWithFormat:@"%lu", (unsigned long)offset];
+    }
+    
+    // Dynamically generate API parameters based on filters
     for (Filter *filter in filters) {
         if ([filter selectedOptions].count) {
             NSString *value = [[[filter selectedOptions] valueForKey:@"code"] componentsJoinedByString:@","];
