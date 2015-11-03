@@ -2,7 +2,7 @@
 
 **Yelp** is a Yelp search app using the [Yelp API](http://www.yelp.com/developers/documentation/v2/search_api).
 
-Time spent: 20 hours spent in total
+Time spent: 25 hours spent in total
 
 ## User Stories
 
@@ -22,7 +22,7 @@ The following **required** functionality is completed:
 The following **optional** features are implemented:
 
 - [ ] Search results page
-   - [ ] Infinite scroll for restaurant results.
+   - [X] Infinite scroll for restaurant results.
    - [ ] Implement map view of restaurant results.
 - [ ] Filter page
    - [ ] Implement a custom switch instead of the default UISwitch.
@@ -30,21 +30,18 @@ The following **optional** features are implemented:
    - [ ] Categories should show a subset of the full list with a "See All" row to expand. Category list is [here](http://www.yelp.com/developers/documentation/category_list).
 - [ ] Implement the restaurant detail page.
 
-The following **additional** features are implemented:
-
-- [ ] List anything else that you can get done to improve the app functionality!
-
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='WALKTHROUGH.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+- Styling the search bar, in particular the magnifying glass and the clear button is confusing / complicated.
+- Good initial organization of the data model saves a lot of time
 
 ## License
 
@@ -61,3 +58,10 @@ Describe any challenges encountered while building the app.
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
+
+## Credits
+* [Yelp API](https://www.yelp.com/developers/documentation/v2/search_api)
+* [AFNetworking](https://github.com/AFNetworking/AFNetworking)
+* [BDBOAuth1Manager](https://github.com/bdbergeron/BDBOAuth1Manager)
+* [MBProgressHUD](https://github.com/jdg/MBProgressHUD)
+* Filter icon created by [Anusha Narvekar](https://thenounproject.com/anusha.narvekar/) from Noun Project

@@ -166,7 +166,7 @@
                                       self.businesses = [self.businesses arrayByAddingObjectsFromArray:businesses];
                                       self.totalCount = totalCount;
                                       [self.tableView reloadData];
-                                      if (!offset) {
+                                      if (!offset && totalCount > 0) {
                                           [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:NO];
                                       }
                                       [MBProgressHUD hideHUDForView:self.view animated:YES];
