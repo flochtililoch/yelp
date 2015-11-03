@@ -337,6 +337,9 @@
 				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = codepath;
 				TargetAttributes = {
+					42FD6C4618DC286A000BF2B9 = {
+						DevelopmentTeam = 56WVAU5YA6;
+					};
 					42FD6C6118DC286B000BF2B9 = {
 						TestTargetID = 42FD6C4618DC286A000BF2B9;
 					};
@@ -557,11 +560,14 @@
 			baseConfigurationReference = FCA9D9EAA444BE83C105EDA0 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Yelp/Yelp-Prefix.pch";
 				INFOPLIST_FILE = "Yelp/Yelp-Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.codepath.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = com.flochtililoch.Yelp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -571,11 +577,14 @@
 			baseConfigurationReference = A28C751BD8043032F84076DB /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Yelp/Yelp-Prefix.pch";
 				INFOPLIST_FILE = "Yelp/Yelp-Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.codepath.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = com.flochtililoch.Yelp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

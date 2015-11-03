@@ -62,7 +62,7 @@
 
     // Search bar
     self.searchBar.delegate = self;
-    self.searchBar.text = @"Restaurant";
+//    self.searchBar.text = @"Restaurant";
     
     // Navigation
     self.navigationItem.titleView = self.searchBar;
