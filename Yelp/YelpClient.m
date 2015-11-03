@@ -45,7 +45,7 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
 }
 
 - (AFHTTPRequestOperation *)searchWithTerm:(NSString *)term
-                                completion:(void (^)(NSArray *businesses, NSError *error))completion {
+                                completion:(void (^)(NSArray *businesses, NSInteger totalCount, NSError *error))completion {
     
     return [self searchWithTerm:term
                         filters:nil
@@ -55,8 +55,8 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
 
 - (AFHTTPRequestOperation *)searchWithTerm:(NSString *)term
                                    filters:(NSArray *)filters
-                                    offset:(NSUInteger *)offset
-                                completion:(void (^)(NSArray *businesses, NSError *error))completion {
+                                    offset:(NSInteger)offset
+                                completion:(void (^)(NSArray *businesses, NSInteger totalCount, NSError *error))completion {
     
     // For additional parameters, see http://www.yelp.com/developers/documentation/v2/search_api
     NSMutableDictionary *parameters = [@{@"term": term,
@@ -64,7 +64,7 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
                                          @"sort": @(0)}
                                        mutableCopy];
     
-    if (offset != nil) {
+    if (offset) {
         parameters[@"offset"] = [NSString stringWithFormat:@"%lu", (unsigned long)offset];
     }
     
@@ -85,10 +85,11 @@ NSString * const kYelpTokenSecret = @"mqtKIxMIR4iBtBPZCmCLEb-Dz3Y";
              success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
                  
                  NSArray *businesses = responseObject[@"businesses"];
-                 completion([YelpBusiness businessesFromJsonArray:businesses], nil);
+                 NSInteger totalCount = [responseObject[@"total"] intValue];
+                 completion([YelpBusiness businessesFromJsonArray:businesses], totalCount, nil);
                  
              } failure:^(AFHTTPRequestOperation * _Nonnull operation, NSError * _Nonnull error) {
-                 completion(nil, error);
+                 completion(nil, 0, error);
              }];
 }
 

@@ -69,15 +69,15 @@
 }
 
 + (void)searchWithTerm:(NSString *)term
-            completion:(void (^)(NSArray *businesses, NSError *error))completion {
+            completion:(void (^)(NSArray *businesses, NSInteger totalCount, NSError *error))completion {
 
     [[YelpClient sharedInstance] searchWithTerm:term completion:completion];
 }
 
 + (void)searchWithTerm:(NSString *)term
                filters:(NSArray *)filters
-                offset:(NSUInteger *)offset
-            completion:(void (^)(NSArray *businesses, NSError *error))completion {
+                offset:(NSInteger)offset
+            completion:(void (^)(NSArray *businesses, NSInteger totalCount, NSError *error))completion {
 
     [[YelpClient sharedInstance] searchWithTerm:term
                                         filters:filters

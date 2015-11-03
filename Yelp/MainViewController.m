@@ -22,6 +22,8 @@
 @property (nonatomic, strong) SearchBar *searchBar;
 @property (nonatomic, strong) NSArray *businesses;
 @property (nonatomic, strong) NSMutableArray *filters;
+@property (nonatomic, assign) NSInteger totalCount;
+@property (nonatomic, assign) BOOL isSearching;
 
 @end
 
@@ -37,7 +39,7 @@
     self.tableView.dataSource = self;
 
     [self initUI];
-    [self searchFromOffset:nil];
+    [self search];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -111,6 +113,13 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     [self.searchBar resignFirstResponder];
+
+    CGFloat actualPosition = self.tableView.contentOffset.y;
+    CGFloat contentHeight = self.tableView.contentSize.height - self.tableView.frame.size.height;
+    if (actualPosition >= contentHeight) {
+        [self searchWithOffset:self.businesses.count];
+    }
+    
 }
 
 
@@ -125,7 +134,7 @@
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
     [searchBar resignFirstResponder];
-    [self searchFromOffset:nil];
+    [self search];
 }
 
 
@@ -133,27 +142,39 @@
 
 - (void)filtersViewController:(FiltersViewController *)filterViewController didChangeFilters:(NSMutableArray *)filters {
     self.filters = filters;
-    [self searchFromOffset:nil];
+    [self search];
 }
 
 
 #pragma - Private
 
-- (void)searchFromOffset:(NSUInteger *)offset {
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
-        [YelpBusiness searchWithTerm:self.searchBar.text
-                             filters:self.filters
-                              offset:offset
-                          completion:^(NSArray *businesses, NSError *error) {
-                              dispatch_async(dispatch_get_main_queue(), ^{
-                                  self.businesses = businesses;
-                                  [self.tableView reloadData];
-                                  [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:NO];
-                                  [MBProgressHUD hideHUDForView:self.view animated:YES];
-                              });
-                          }];
-    });
+- (void)search {
+    self.businesses = [NSArray array];
+    [self searchWithOffset:0];
+}
+
+- (void)searchWithOffset:(NSInteger)offset {
+    if (offset == 0 || (offset < self.totalCount && !self.isSearching)) {
+        self.isSearching = YES;
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+            [YelpBusiness searchWithTerm:self.searchBar.text
+                                 filters:self.filters
+                                  offset:offset
+                              completion:^(NSArray *businesses, NSInteger totalCount, NSError *error) {
+                                  dispatch_async(dispatch_get_main_queue(), ^{
+                                      self.businesses = [self.businesses arrayByAddingObjectsFromArray:businesses];
+                                      self.totalCount = totalCount;
+                                      [self.tableView reloadData];
+                                      if (!offset) {
+                                          [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:NO];
+                                      }
+                                      [MBProgressHUD hideHUDForView:self.view animated:YES];
+                                      self.isSearching = NO;
+                                  });
+                              }];
+        });
+    }
 }
 
 - (NSMutableArray *)filters {
@@ -161,6 +182,13 @@
         _filters = [NSMutableArray array];
     }
     return _filters;
+}
+
+- (NSArray *)businesses {
+    if (!_businesses) {
+        _businesses = [NSArray array];
+    }
+    return _businesses;
 }
 
 @end

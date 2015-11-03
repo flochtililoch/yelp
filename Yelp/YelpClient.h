@@ -16,11 +16,11 @@
 + (instancetype)sharedInstance;
 
 - (AFHTTPRequestOperation *)searchWithTerm:(NSString *)term
-                                completion:(void (^)(NSArray *businesses, NSError *error))completion;
+                                completion:(void (^)(NSArray *businesses, NSInteger totalCount, NSError *error))completion;
 
 - (AFHTTPRequestOperation *)searchWithTerm:(NSString *)term
                                    filters:(NSArray *)filters
-                                    offset:(NSUInteger *)offset
-                                completion:(void (^)(NSArray *businesses, NSError *error))completion;
+                                    offset:(NSInteger)offset
+                                completion:(void (^)(NSArray *businesses, NSInteger totalCount, NSError *error))completion;
 
 @end
